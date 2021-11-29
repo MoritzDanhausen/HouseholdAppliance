@@ -26,31 +26,15 @@ public class Client{
         PackingVisitor pv = new PackingVisitor();
         MovingCostVisitor mcv = new MovingCostVisitor();
         
-        for (int i = 0; i < householdItems.size(); i++) {
-			HouseholdItem.accept(pv);
-            householdItems.get(i);
-			HouseholdItem.accept(mcv);
-			householdItems.get(i);
-			System.out.println(i);
-			System.out.println(householdItems.get(i));
+        for (HouseholdItem item : householdItems) {
+        	pv.getPacking(item);
+        }
+        
+        System.out.println();
+        
+        for (HouseholdItem item : householdItems) {
+        	mcv.getCost(item);
         }
      
-        microwaveOven.accept(mcv);
-        tv.accept(mcv);
-        wineGlass.accept(mcv);
-        coffeeTable.accept(mcv);
-        bed.accept(mcv);
-        cupboard.accept(mcv);
-        
-        System.out.println("");
-        
-        microwaveOven.accept(pv);
-        tv.accept(pv);
-        wineGlass.accept(pv);
-        coffeeTable.accept(pv);
-        bed.accept(pv);
-        cupboard.accept(pv);
-        
 	}
-
 }

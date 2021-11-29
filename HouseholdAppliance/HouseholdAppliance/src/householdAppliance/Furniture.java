@@ -58,25 +58,7 @@ public class Furniture implements HouseholdItem{
 	public void setName(String name) {
 		this.name = name;}
 	
-	
-	public int calcMovingCost(int weight) {
-		// TODO Auto-generated method stub
-		int price = (this.weight/5)*20;
-		return price;
-	}
-	
-	public double calcArea(int height, int lenght, int width){
-		// TODO Auto-generated method stub
-		double area = 0;
-		area = 2*height*lenght+2*height*width+2*lenght*width;
-		return area;
-	}
-	
-	public void accept(PackingVisitor pv) {
-		pv.visit(this);
-	}
-	
-	public void accept(MovingCostVisitor mvc) {
-		mvc.visit(this);
+	public void accept(Visitor v) {
+		v.visit(this);
 	}
 }

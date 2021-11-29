@@ -59,22 +59,7 @@ public class Electronic implements HouseholdItem{
 	public void setFragile(Boolean fragile) {
 		this.fragile = fragile;}
 	
-	public double calcMovingCost(int weight, Boolean fragile) {
-		// TODO Auto-generated method stub
-		int price = 0;
-		if (this.fragile == true) {
-			price = (this.weight/10)*5;
-		}else{
-			price =(this.weight/15)*5;
-		}
-		return price;
-	}
-
-	public void accept(PackingVisitor pv) {
-		pv.visit(this);
-	}
-	
-	public void accept(MovingCostVisitor mvc) {
-		mvc.visit(this);
+	public void accept(Visitor v) {
+		v.visit(this);
 	}
 }

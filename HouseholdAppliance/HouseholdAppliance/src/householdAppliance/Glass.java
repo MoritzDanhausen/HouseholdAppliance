@@ -17,7 +17,6 @@ public class Glass implements HouseholdItem{
 		this.thickness = thickness;	
 	}
 
-	
 //Getters and Setters =
 	public int getHeight() {
 		return height;}
@@ -50,26 +49,8 @@ public class Glass implements HouseholdItem{
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
-	public double calcMovingCost(int thickness, int length) {
-		// TODO Auto-generated method stub
-		double price = 0;
-		if (this.thickness == 1) {
-			price = 2*this.length;
-		}else if (this.thickness == 2) {
-			price = 1.2*this.length;
-		}else {
-			price = 0.7*this.length;
-		}
-		return price;
-	}
 	
-	public void accept(PackingVisitor pv) {
-		pv.visit(this);
-	}
-	
-	public void accept(MovingCostVisitor mvc) {
-		mvc.visit(this);
+	public void accept(Visitor v) {
+		v.visit(this);
 	}
 }
